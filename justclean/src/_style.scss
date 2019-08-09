@@ -1,0 +1,942 @@
+@import 'reset';
+
+a, a:visited, a:hover, a:active {
+    text-decoration:none!important;
+    color:inherit!important;
+}
+
+$mina:  Mina, sans-serif;
+$gold1: #d3be6d;
+$gold2: #ecc529;
+
+@mixin cover-background {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin center-vertical {
+    top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+}
+
+.wrapper {
+    display:grid;
+    overflow: hidden;
+    grid-template-columns: auto;
+    background-color:black;
+    grid-template-areas:
+    "header"
+    "gold-bar1"
+    "banner"
+    "gold-bar2"
+    "about-container"
+    "gold-bar3"
+    "our-services-bw"
+    "gold-bar4"
+    "green-cleaning-container-bw"
+    "gold-bar5"
+    "contact"
+    "footer";
+}
+
+.header {
+    grid-column: header;
+    max-width:100vw;
+    display:grid;
+    grid-template-columns: 20% auto;
+    grid-column-gap: 35%;
+    background-color: black;
+    min-height: 7vh;
+    grid-template-areas:
+     "logo  nav";
+    .logo {
+        grid-row:logo;
+        vertical-align: middle;
+        height:5vh;
+        margin-top:1vh;
+        margin-left: 5px;
+    }
+    .nav {
+        grid-row:nav;
+        height:100%;
+        max-width:70vw;
+       float: right;
+        display:grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+        "nav-ul";
+    }
+    ul {
+        grid-area:nav-ul;
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        list-style-type: none;
+        float: right;
+        margin-right: 1em;
+        li {
+            display:block;
+            list-style-type: none;
+            padding-right: 0.5em;
+            width: auto;
+            font: 100% $mina;
+            font-size: 2vw;
+            line-height: 7vh;
+            color: $gold1;
+            white-space: nowrap;
+        }
+        li:hover {
+            cursor: pointer;
+            color: $gold2;
+        }
+    }
+    .menu-green {
+        color:#228B22!important;
+        
+    }
+    .menu-green:hover {
+        color:rgb(18, 214, 18)!important;
+    }
+    
+}
+
+.nav-mobile-icon {
+    height: 2vh;
+    width:1vw;
+    display:none;
+    visibility:hidden;
+}
+
+.nav-mobile {
+    display:none;
+    visibility: hidden;
+}
+
+.gold-bar1 {
+    grid-area: gold-bar1;
+    height: 1vh;
+    background-color: $gold2;
+}
+
+.gold-bar2 {
+    grid-area: gold-bar2;
+    height: 1vh;
+    background-color: $gold2;
+}
+
+.gold-bar3 {
+    grid-area: gold-bar3;
+    height: 1vh;
+    z-index:3;
+    background-color: $gold2;
+}
+.gold-bar4 {
+    grid-area: gold-bar4;
+    height: 1vh;
+    z-index:3;
+    background-color: $gold2;
+}
+.gold-bar5 {
+    grid-area: gold-bar4;
+    height: 1vh;
+    z-index:3;
+    background-color: $gold2;
+}
+
+.banner {
+    grid-area: banner;
+    background-image: url("../img/bg.jpg");
+    background-color: #000;
+    height: 91vh;
+    max-width: 100%;
+    @include cover-background;
+    background-attachment: fixed;
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-areas:
+    "logo-big";
+    .logo-big {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        @include center-vertical;
+        width:30vw;  
+    }
+}
+
+.scroll-down-cue {
+    position:abosulte;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.scroll-down-cue a {
+    @include cover-background;
+    width: 70px;
+    height: 30px;
+    position: relative;
+    margin: 0 auto;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+.scroll-down-cue a:hover {
+    @include cover-background;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.about-container {
+    grid-area: about-container;
+    background-image: url("../img/bg2.jpg");
+    background-color: #000;
+    max-width:100vw;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas:
+     "about-photos";
+    height: 100vh;
+    width: 100%;
+    @include cover-background;
+}
+
+.about-photos {
+    grid-area: about-photos;
+    position: relative;
+    @include cover-background;
+    width:100%;
+    height: 80vh;
+    justify-items: center;
+    -webkit-perspective: 100vw;
+    perspective: 100vw;
+}
+
+
+.about-text-container {
+    position:relative;
+}
+
+.about-text-container-mob {
+    display:none;
+}
+
+.sub-title {
+    z-index:2;
+    color: $gold2;
+    width:28vw;
+    text-align: center;
+    font-size:3vw;
+    position:fixed;
+    top:20vh;
+    left:57vw;
+    font-family: 'Pacifico', cursive;
+    transform: rotateX(-2deg) rotateY(-20.3deg);
+}
+
+.about-text {
+    z-index:2;
+    color: $gold2;
+    width:28vw;
+    text-align: center;
+    font-size:1.4vw;
+    position:fixed;
+    top:28vh;
+    left:57vw; 
+    transform: rotateX(-2deg) rotateY(-20.3deg);
+       
+}
+
+.our-services-bw {
+    grid-area: our-services-bw;
+    height:100vh;
+    width:100%;
+    background-color: #000;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas:
+     "our-services-container";
+}
+
+.our-services-container {
+    grid-area: our-services-container;
+    height:100vh;
+    width:100%;
+    background-image: url("../img/bg.jpg");
+    @include cover-background;
+    display: grid;
+    text-align:center;
+    margin-left:1vw;
+    margin-right:1vw;
+    grid-template-columns: 100%;
+    grid-template-areas:
+     "our-services-text-container-desktop";
+}
+
+.our-services-text-container-desktop {
+    grid-area:our-services-text-container-desktop;
+    display:grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-areas:
+    "serv-title serv-title serv-title"
+    "services-sub services-sub services-sub"
+    "bedroom bathroom kitchen"
+    "serv-text-deep serv-text-deep serv-text-deep";
+}
+
+.bedroom {
+    grid-area:bedroom;
+}
+
+.bathroom {
+    grid-area:bathroom;
+}
+
+.kitchen {
+    grid-area:kitchen;
+}
+
+.our-services-text-container {
+    grid-area:our-services-text-container-desktop;
+    display:none;
+    visibility: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-areas:
+    "our-services-text-container-desktop services-photo";
+ }
+
+.our-services-title {
+    text-align: center;
+    font: 100% $mina;
+    font-size:4vw;
+    text-align: center;
+    color: $gold2;
+}
+
+.our-services-text {
+    font: 100% $mina;
+    font-size:.5vw;
+    text-align: center;
+    color: $gold1;
+}
+
+.serv-text {
+    font: 100% $mina;
+    font-size:1vw;
+    text-align: center;
+    color: $gold1;
+    border: 1px solid $gold1;
+}
+
+.serv-text-deep {
+    grid-area:serv-text-deep;
+    font: 100% $mina;
+    display:block;
+    font-size:1vw;
+    text-align: center;
+    color: $gold1;
+}
+
+.serv-title {
+    grid-area:serv-title;
+    font-family: 'Pacifico', cursive;
+    font-size:3vw!important;
+    text-align: center;
+    color: $gold2;
+}
+
+.services-sub {
+    grid-area:services-sub;
+    font-family: 'Pacifico', cursive;
+    font-size:2vw!important;
+    text-align: center;
+    color: $gold2;
+}
+
+.services-sub-sub {
+    color: $gold2;
+    font-size:1.5vw!important;
+}
+
+.green-container-bw {
+    grid-area: green-cleaning-container-bw;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas:
+     "green-cleaning-container";
+    background-image: url("../img/bg-green-bw.jpg");
+    background-color: #000;
+    height: 100vh;
+    width: 100%;
+    @include cover-background;
+}
+
+.green-cleaning-container {
+    grid-area: green-cleaning-container;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+     "green-photo green-text-container";
+    background-image: url("../img/bg-green.jpg");
+    background-color: #000;
+    height: 100vh;
+    width: 100%;
+    @include cover-background;
+}
+
+.green-text-container {
+    grid-area: green-text-container;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas:
+     "green-sub-title"
+     "green-text"
+     "hand-tree";
+    background-color: rgba(0, 0, 0, .9);
+}
+
+.green-sub-title {
+    grid-area:green-sub-title;
+    z-index:2;
+    color: green;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size:4vw;
+    text-align: center;
+}
+
+.green-text {
+    grid-area:green-text;
+    z-index:2;
+    color: white;
+    font: 100% $mina;
+    text-align: center;
+    padding-left: 2vw;
+    padding-right:2vw;
+    position:relative; 
+}
+
+.content-desktop  {
+    padding-top:2vw!important;
+}
+
+.hand-tree {
+    grid-area: hand-tree;
+    width:73vh;
+    position:relative;
+    right:-12vw;
+    top:-1vh;
+}
+
+.contact-container {
+    grid-area: contact;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas:
+     "contact-title"
+     "contact-form"
+     "phone";
+    background-image: url("../img/contact.jpg");
+    background-color: #000;
+    height: 93vh!important;
+    width: 100%;
+    @include cover-background;
+}
+
+.contact-title {
+    grid-area:contact-title;
+    padding-top:1vw;
+    font-size:3vw!important;
+}
+#contact-form {
+    grid-area:contact-form;
+    width:80vw;
+    margin: 0 auto;
+    color: $gold2;
+    position:relative; 
+}
+
+.phone {
+    grid-area:phone;
+    color: $gold2;
+    font-size: 2vw;
+    text-align:center;
+}
+
+.btn:hover {
+    cursor:pointer;
+}
+
+.footer {
+    grid-area:footer;
+    background-color: rgba(0, 0, 0, 0.753);
+    height:7vh;
+    width:100vw;
+}
+
+.credits {
+    color: $gold2;
+    font-size:2vw!important;
+    font: 100% $mina;
+    margin-left:2vw;
+}
+
+  /* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: $gold1;;
+    color: black;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+    background-color: $gold2;
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .content {
+    padding: 0 18px;
+    border: 1px solid gold;
+    overflow: hidden;
+    color:$gold1;
+    font-size: 1.2vw;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+  }
+
+  .collapsible:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    color: white;
+    float: right;
+    margin-left: 5px;
+    font-size:0.7em!important;
+    vertical-align: middle;
+  }
+  
+  .active:after {
+    font-size:0.7em!important;
+    vertical-align: middle;
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+
+  .serv-text-deep {
+    font-size: 1.2vw;
+  }
+
+/*success style*/
+.success-container{
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-areas:
+     "first-row"
+     "logo-big-success"
+     "second-row";
+    background-image: url("../img/bg.jpg");
+    background-color: #000;
+    height: 100vh;
+    max-width: 100%;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.first-row {
+    grid-area:first-row;
+    text-align:center;
+    color: $gold2;
+}
+
+.logo-big-success {
+    grid-area:logo-big-success;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    @include cover-background;
+    width:30vw;
+}
+
+.second-row {
+    grid-area:second-row;
+    text-align:center;
+    color: $gold2;
+}
+
+
+/*------------------------------------MOBILE----------------------------------------*/
+@media only screen and (max-width : 1200px) {
+
+    .wrapper {
+        display:grid;
+        overflow: hidden;
+        grid-template-columns: auto;
+        background-color:black;
+        grid-template-areas:
+        "header"
+        "gold-bar1"
+        "banner"
+        "gold-bar2"
+        "about-container-bw"
+        "gold-bar3"
+        "our-services-bw"
+        "gold-bar4"
+        "green-cleaning-container-bw"
+        "gold-bar5"
+        "contact";
+    }
+
+    .header {
+        grid-column: header;
+        max-width:100vw;
+        height: auto;
+        display:grid;
+        grid-template-columns:  auto 20%;
+        background-color: black;
+        grid-template-areas:
+         "logo  nav-mobile-icon"
+         "nav-mobile nav-mobile";
+
+        .logo {
+            grid-row:logo;
+            vertical-align: middle;
+            height:5vh;
+            margin-top:2vh;
+            margin-bottom:1vh;
+            margin-left: 5px;
+        }
+
+        .nav {
+            grid-row:nav;
+            visibility: hidden;
+            display:none;
+        }
+       
+    }
+    
+    .nav-mobile-icon {
+        grid-area: nav-mobile-icon;
+        text-align:right;
+        display:grid;
+        visibility: visible;
+        vertical-align: middle;
+        height:5vh;
+        margin-right: 1vw;;
+        margin-top:2vh;
+        margin-bottom:1vh;
+        width:auto;
+    }
+
+    .nav-mobile {
+        grid-area:nav-mobile;
+        width: 100vw;
+        display:none;
+        visibility: visible;
+        grid-template-columns:  100%;
+        grid-template-areas:
+         "menu-mo1"
+         "menu-mo2"
+         "menu-mo3"
+         "menu-mo4";
+         .menu-mo1 {
+             grid-area: menu-mo1;
+             color: white;
+         }
+
+         .menu-mo2 {
+            grid-area: menu-mo2;
+        }
+
+        .menu-mo3 {
+            grid-area: menu-mo3;
+        }
+
+        .menu-mo4 {
+            grid-area: menu-mo4;
+        }
+
+        .menu-mo {
+            text-align: center;
+            font: 100% $mina;
+            font-size: 6vw;
+            color: $gold1;
+            white-space: nowrap;
+        }
+
+        .menu-mo:hover{
+            cursor:pointer;
+            color:$gold2;
+        }
+
+    }
+
+    .banner {
+        grid-template-rows: 100%;
+        grid-template-areas:
+        "logo-big"
+        "scroll-down-cue";
+    }
+
+    .logo-big {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 45vh!important;
+        text-align: center;
+    }
+
+    .green-cleaning-container {
+        grid-area: green-cleaning-container;
+        display: grid;  
+        grid-template-columns: 100%;
+        grid-template-areas:
+         "green-photo green-text-container";
+        background-image: url("../img/bg-green.jpg");
+        background-color: #000;
+        overflow:hidden;
+        height: 100vh;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .green-text-container {
+        grid-area: green-text-container;
+        position:absolute;
+        max-width:70%;
+        align-items: center;
+        justify-items: center;
+        overflow:hidden;
+        height:100vh;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+         "green-sub-title"
+         "green-text"
+         "hand-tree";
+        background-color: rgba(0, 0, 0, .8);
+    }
+  
+    .green-sub-title {
+        grid-area:green-sub-title;
+        z-index:2;
+        overflow:hidden;
+        color: green;
+        text-align: center;
+        font-family: 'Pacifico', cursive;
+        font-size:8vw;
+        text-align: center;
+    }
+    
+    .green-text {
+        grid-area:green-text;
+        z-index:2;
+        overflow:hidden;
+        color: white;
+        font: 100% $mina;
+        text-align: center;
+        padding-left: 2vw;
+        padding-right:2vw;
+    }
+    
+    .hand-tree {
+        grid-area: hand-tree;
+        width:43vh;
+        position:relative;
+        right:-26vw;
+        top:-6vh;
+        overflow:hidden;
+        display:none;
+    }
+
+    .about-container-bw {
+        grid-area: about-container-bw;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-areas:
+        "about-container";
+        background-image: url("../img/bgade.jpg");
+        background-color: #000;
+        height: 100vh;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .about-container {
+        grid-area: about-container;
+        background-image: url("../img/bga.jpg");
+        background-color: #000;
+        max-width:100vw;
+        display: grid;
+        grid-template-columns: 30%;
+        align-items: right;
+        grid-template-areas:
+         "gap about-text-container-mob";
+        height: 100vh;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .about-photos {
+        display:none;
+    }
+    
+    .about-text-container-mob {
+        grid-area: about-text-container-mob;
+        display: grid;
+        overflow:hidden;
+        height:100vh;
+        max-width:100%;
+        float:right;
+        grid-template-columns: 100%;
+        grid-template-areas:
+         "sub-title-mob"
+         "about-text-mob";
+        background-color: rgba(0, 0, 0, .9);
+    }
+    
+    .sub-title-mob {
+        grid-area:sub-title-mob;
+        z-index:2;
+        margin-top:10vw;
+        color: $gold2;
+        text-align: center;
+        font-family: 'Pacifico', cursive;
+        font-size:8vw;
+        text-align: center;
+    }
+    
+    .about-text-mob {
+        grid-area:about-text-mob;
+        z-index:2;
+        color: $gold1;
+        font: 100% $mina;
+        text-align: center;
+        padding-left: 2vw;
+        padding-right:2vw;
+        position:relative;
+        top:-4vh;    
+    }
+
+    .our-services-container {
+        grid-area: our-services-container;
+        height:100vh;
+        width:100%;
+        background-image: url("../img/bg.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: grid;
+        text-align:center;
+        margin-left:1vw;
+        margin-right:1vw;
+        grid-template-columns: 100%;
+        grid-template-areas:
+         "our-services-text-container";
+    }
+    
+    .our-services-text-container {
+        grid-area:our-services-text-container;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .our-services-title {
+        text-align: center;
+        font-family: 'Pacifico', cursive;
+        font-size:5vw;
+        text-align: center;
+        color: $gold2;
+    }
+    
+    .our-services-text {
+        font: 100% $mina;
+        font-size:2vw!important;
+        text-align: center;
+        color: $gold1;    
+    }
+    
+    .serv-text {
+        font: 100% $mina;
+        font-size:4vw!important;
+        text-align: center;
+        color: $gold1;
+    }
+    
+    .serv-text-deep {
+        font: 100% $mina;
+        display:block;
+        font-size:5vw!important;
+        text-align: center;
+        color: $gold1;
+    }
+
+    .collapsible {
+        color:black;
+    }
+
+    .content {
+        font-size:5vw!important;
+    }
+
+    .our-services-text-container {
+        display:block;
+         visibility: visible;
+     }
+
+     .services-sub {
+        font-size:5vw!important;
+    }
+    .services-sub {
+        font-size:5vw!important;
+    }
+
+    .phone {
+        text-align:center;
+        font-size: 6vw;
+        width:100%;
+    }
+
+    .contact-container {
+        z-index:10;
+        grid-area: contact;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+         "contact-title"
+         "contact-form"
+         "phone";
+        background-image: url("../img/contact.jpg");
+        background-color: #000;
+        min-height: 100vh!important;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .footer {
+        display:none;
+        visibility:hidden;
+    }
+
+  }
